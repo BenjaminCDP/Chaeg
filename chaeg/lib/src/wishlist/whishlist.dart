@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Whishlist extends StatelessWidget {
   const Whishlist({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class Whishlist extends StatelessWidget {
             children: List.generate(100, (index) {
               return Center(
                   child: Text(
-                'Item $index',
+                "hihi",
                 style: Theme.of(context).textTheme.headline5,
               ));
             })),

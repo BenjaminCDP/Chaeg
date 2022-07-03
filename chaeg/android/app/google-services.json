@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "52375665662",
+    "project_id": "chaeg-92c83",
+    "storage_bucket": "chaeg-92c83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52375665662:android:0516dd4220634a3a0b5eaf",
+        "android_client_info": {
+          "package_name": "com.example.chaeg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "52375665662-43ntl8155u7vicgm23g94d4fcpteko3h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXK5KsXIwIngoNVAGNfxSaSlVUN8u4AGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "52375665662-43ntl8155u7vicgm23g94d4fcpteko3h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "52375665662-adn0tuqjpqbmlhtunacm7dludbfgdrh9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.chaeg"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
