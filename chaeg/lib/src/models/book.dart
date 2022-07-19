@@ -1,20 +1,18 @@
 class Book {
-  final int id;
-  final String name;
+  String name;
 
-  const Book({required this.id, required this.name});
+  Book({required this.name});
 
   Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name
-    };
-  }
-  
-  @override
-  String toString() {
-    return 'Book{id: $id, name: $name}';
+    return {'name': name};
   }
 
-  
+  setName(String name) {
+    this.name = name;
+  }
+
+  @override
+  String toString() {
+    return 'Book{name: $name}';
+  }
 }

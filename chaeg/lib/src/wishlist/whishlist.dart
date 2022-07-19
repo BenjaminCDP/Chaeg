@@ -1,8 +1,8 @@
+import 'package:chaeg/src/ui/add_book_dialog.dart';
 import 'package:flutter/material.dart';
 
 class Whishlist extends StatelessWidget {
   const Whishlist({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,11 @@ class Whishlist extends StatelessWidget {
             })),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // Add your onPressed code here!
+            showDialog<String>(
+                context: context,
+                builder: (context) => AddBookDialog(onConfirm: (String value) {
+                      print(value);
+                    }));
           },
           backgroundColor: Colors.blue,
           child: const Icon(Icons.add),
