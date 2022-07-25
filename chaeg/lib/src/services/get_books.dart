@@ -28,7 +28,8 @@ class _GetBooksState extends State<GetBooks> {
             Map<String, dynamic> data =
                 document.data()! as Map<String, dynamic>;
             return ListTile(
-              title: Text(data['name']),
+              title: Text(data['title']),
+              subtitle: Text(data['author']),
             );
           }).toList(),
         );
