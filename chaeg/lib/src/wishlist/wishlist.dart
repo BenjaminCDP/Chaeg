@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../ui/add_book_dialog.dart';
 
-class BookPile extends StatefulWidget {
+class Wishlist extends StatefulWidget {
+  const Wishlist({super.key});
+
   @override
-  _BookPileState createState() => _BookPileState();
+  WishlistState createState() => WishlistState();
 }
 
-class _BookPileState extends State<BookPile> {
+class WishlistState extends State<Wishlist> {
   final Stream<QuerySnapshot> _booksStream =
       FirebaseFirestore.instance.collection('books').snapshots();
 
@@ -16,7 +18,7 @@ class _BookPileState extends State<BookPile> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: StreamBuilder<QuerySnapshot>(
-          stream: booksStream,
+          stream: _booksStream,
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasError) {
@@ -27,12 +29,19 @@ class _BookPileState extends State<BookPile> {
               return const Text("Loading");
             }
 
-            return GridView.count(
-              crossAxisCount: 2,
+            return ListView(
               children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> data =
                     document.data()! as Map<String, dynamic>;
-                return Image.network(data['thumbnail']);
+                return ListTile(
+                  leading: Image.network(data['thumbnail']),
+                  title: Text(data['title']),
+                  subtitle: Text(data['author']),
+                  trailing: const Icon(
+                    Icons.arrow_right_alt,
+                    color: Colors.blue,
+                  ),
+                );
               }).toList(),
             );
           },
@@ -49,6 +58,4 @@ class _BookPileState extends State<BookPile> {
             backgroundColor: Colors.blue,
             child: const Icon(Icons.add)));
   }
-
-  get booksStream => _booksStream;
 }
