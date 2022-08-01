@@ -13,6 +13,7 @@ class AddBookDialog extends StatefulWidget {
 
   // The callback function with data you want to return -------|
   final Function(String value) onConfirm; // <------------|
+  bool inBookPile;
 
   Future<Book> fetchBook(String title, author) async {
     String? getUri;
@@ -63,7 +64,7 @@ class AddBookDialog extends StatefulWidget {
           'medium': book.imageLinks.medium,
           'large': book.imageLinks.large,
           'extraLarge': book.imageLinks.extraLarge,
-          'inBookPile': book.inBookPile
+          'inBookPile': inBookPile
         })
         .then((value) => print("Book Added"))
         .catchError((error) => print("Failed to add book: $error")));
@@ -72,6 +73,7 @@ class AddBookDialog extends StatefulWidget {
   AddBookDialog({
     Key? key,
     required this.onConfirm,
+    required this.inBookPile
   }) : super(key: key);
 }
 

@@ -63,7 +63,7 @@ class WishlistState extends State<Wishlist> {
                   builder: (context) =>
                       AddBookDialog(onConfirm: (String value) {
                         print(value);
-                      }));
+                      }, inBookPile: false,));
             },
             backgroundColor: Colors.blue,
             child: const Icon(Icons.add)));

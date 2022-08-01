@@ -44,7 +44,7 @@ class _BookPileState extends State<BookPile> {
                   builder: (context) =>
                       AddBookDialog(onConfirm: (String value) {
                         print(value);
-                      }));
+                      }, inBookPile: true,));
             },
             backgroundColor: Colors.blue,
             child: const Icon(Icons.add)));
