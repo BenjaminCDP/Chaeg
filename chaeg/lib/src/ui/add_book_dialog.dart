@@ -62,7 +62,8 @@ class AddBookDialog extends StatefulWidget {
           'small': book.imageLinks.small,
           'medium': book.imageLinks.medium,
           'large': book.imageLinks.large,
-          'extraLarge': book.imageLinks.extraLarge
+          'extraLarge': book.imageLinks.extraLarge,
+          'inBookPile': book.inBookPile
         })
         .then((value) => print("Book Added"))
         .catchError((error) => print("Failed to add book: $error")));

@@ -10,7 +10,7 @@ class BookPile extends StatefulWidget {
 
 class _BookPileState extends State<BookPile> {
   final Stream<QuerySnapshot> _booksStream =
-      FirebaseFirestore.instance.collection('books').snapshots();
+      FirebaseFirestore.instance.collection('books').where('inBookPile',isEqualTo: true).snapshots();
 
   @override
   Widget build(BuildContext context) {

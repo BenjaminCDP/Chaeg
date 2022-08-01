@@ -8,11 +8,17 @@ class Wishlist extends StatefulWidget {
 
   @override
   WishlistState createState() => WishlistState();
+
+  
 }
 
 class WishlistState extends State<Wishlist> {
   final Stream<QuerySnapshot> _booksStream =
-      FirebaseFirestore.instance.collection('books').snapshots();
+      FirebaseFirestore.instance.collection('books').where('inBookPile',isEqualTo: false).snapshots();
+
+  Future<void> addToBookPile(String documentId){
+    return FirebaseFirestore.instance.collection('books').doc(documentId).update({'inBookPile' : true}).then((value) => null)..catchError((error) => print("Failed to delete book's property: $error"));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +43,14 @@ class WishlistState extends State<Wishlist> {
                   leading: Image.network(data['thumbnail']),
                   title: Text(data['title']),
                   subtitle: Text(data['author']),
-                  trailing: const Icon(
+                  trailing:  InkWell(
+                    onTap: () => addToBookPile(document.id),
+                    child: const Icon(
                     Icons.arrow_right_alt,
                     color: Colors.blue,
+                    
                   ),
+                )
                 );
               }).toList(),
             );
